@@ -17,7 +17,7 @@ Highcharts.chart('container', {
         type: 'line'
     },
     title: {
-        text: 'Počet lidí žijících v chudobě'
+        text: 'Podíl lidí žijících v chudobě, bez Číny'
     },
     subtitle: {
         text: '(pod 7,40 dolaru na den k roku 2011)'
@@ -27,18 +27,18 @@ Highcharts.chart('container', {
         href: ""
     },
     tooltip: {
-        formatter: function() {return `<b>${this.x}</b>: ${this.y} miliónů lidí`}
+        formatter: function() {return `<b>${this.x}</b>: ${this.y.toString().replace(".",",")} % lidí`}
     },
     legend: {
         enabled: false
     },
     yAxis: {
         title: {
-            text: 'Milióny lidí'
+            text: '% lidí'
         },
         min: 0,
         labels: {
-            formatter: function() { return this.value; }   
+            formatter: function() { return this.value + " %"; }   
         }
     },
     plotOptions: {
@@ -48,8 +48,8 @@ Highcharts.chart('container', {
     },
     //colors: ['#ECA038','#A38456','#EA614A','#008836','#20649B','#6B96CA','#A87A93','#D19C95'],
     series: [{
-        name: 'Miliónů lidí',
-        data: [3193, 3260, 3329, 3390, 3454, 3511, 3568, 3645, 3715, 3794, 3873, 3952, 4031, 4097, 4164, 4231, 4285, 4317, 4384, 4395, 4406, 4428, 4417, 4406, 4406, 4384, 4362, 4340, 4318, 4296, 4252, 4208, 4150]
+        name: '% lidí',
+        data: [ 61.4,  61.8,  62.2,  62.4,  62.4,  62.4,  62.8,  63.0,  63.5,  63.9,  64.7,  65.2,  65.4,  65.8,  66.2,  66.2,  66.6,  67.0,  66.6,  66.2,  65.8,  65.3,  64.7,  63.9,  63.1,  62.3,  61.3,  60.8,  60.0,  59.0,  58.5,  57.9]
     }]
 });
 </script>
