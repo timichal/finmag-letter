@@ -1,0 +1,103 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    label {
+        white-space: nowrap;
+    }
+</style>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+<div id="container" style="height: 400px; width: 100%; margin: 0 auto"></div>
+<script>
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Počet lidí žijících v chudobě'
+    },
+    subtitle: {
+        text: '(pod 7,40 dolaru na den k roku 2011)'
+    },
+    credits: {
+        text: "",
+        href: ""
+    },
+    tooltip: {
+        formatter: function() {return `<b>${this.x}</b>: ${this.y} miliónů lidí`}
+    },
+    legend: {
+        enabled: false
+    },
+    yAxis: {
+        title: {
+            text: 'Milióny lidí'
+        },
+        min: 0,
+        labels: {
+            formatter: function() { return this.value; }   
+        }
+    },
+    plotOptions: {
+        line: {
+            pointStart: 1981,
+        }
+    },
+    //colors: ['#ECA038','#A38456','#EA614A','#008836','#20649B','#6B96CA','#A87A93','#D19C95'],
+    series: [{
+        name: 'Miliónů lidí',
+        data: [3193, 3260, 3329, 3390, 3454, 3511, 3568, 3645, 3715, 3794, 3873, 3952, 4031, 4097, 4164, 4231, 4285, 4317, 4384, 4395, 4406, 4428, 4417, 4406, 4406, 4384, 4362, 4340, 4318, 4296, 4252, 4208, 4150]
+    }]
+});
+
+Highcharts.chart('container2', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Odměny v grandslamových turnajích'
+    },
+    subtitle: {
+        text: 'V miliónech Kč'
+    },
+    credits: {
+        text: "Zdroj: Total Sportek",
+        href: "https://www.totalsportek.com/money/highest-prize-money-in-tennis-grand-slams/"
+    },
+    xAxis: {
+        categories: ["Australian Open", "French Open", "Wimbledon", "US Open"],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Odměny (milióny Kč)'
+        }
+    },
+    plotOptions: {
+        column: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    tooltip: {
+        valueSuffix: ' millions'
+    },
+    colors: ['#EA614A','#008836','#20649B','#6B96CA','#A87A93','#D19C95'],
+    series: [{
+        name: 'Celkem',
+        data: [971, 1087, 1019, 1201]
+    }, {
+        name: 'Vítězky a vítězové dvouhry',
+        data: [72.4, 61.1, 65.9, 86.1]
+    }]
+});
+</script>
